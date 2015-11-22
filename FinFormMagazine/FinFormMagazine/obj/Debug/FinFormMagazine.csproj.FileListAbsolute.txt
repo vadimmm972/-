@@ -1,0 +1,12 @@
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\bin\Debug\FinFormMagazine.exe.config
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\bin\Debug\FinFormMagazine.exe
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\bin\Debug\FinFormMagazine.pdb
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.csprojResolveAssemblyReference.cache
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.Properties.Resources.resources
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.csproj.GenerateResource.Cache
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.exe
+c:\users\vadim\documents\visual studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.pdb
+C:\Users\Vadim\Documents\Visual Studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.CasirForm.resources
+C:\Users\Vadim\Documents\Visual Studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.LoginForm.resources
+C:\Users\Vadim\Documents\Visual Studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.ManegerForm.resources
+C:\Users\Vadim\Documents\Visual Studio 2013\Projects\FinFormMagazine\FinFormMagazine\obj\Debug\FinFormMagazine.FormWorker.resources
