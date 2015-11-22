@@ -132,6 +132,12 @@ namespace FinFormMagazine
                 work.Show();
                 this.Hide();
             }
+            else if (res == 4)
+            {
+                AdminForm admin = new AdminForm(this);
+                admin.Show();
+                this.Hide();
+            }
 
 
         }

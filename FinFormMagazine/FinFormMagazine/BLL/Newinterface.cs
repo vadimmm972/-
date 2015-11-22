@@ -33,5 +33,9 @@ namespace FinFormMagazine.BLL
         List<string[]> GetMessument();
         List<string[]> GetMarkap();
         List<string[]> GetCategory();
+        //////////////////////////////////////////ADMIN
+
+        List<string[]> Manneger();
+
     }
 }

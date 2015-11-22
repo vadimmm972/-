@@ -38,5 +38,10 @@ namespace FinFormMagazine.DAL
 
         void SetProducteds(string Name, string IdCategory, string Price, string Quantity, string Idproducer,
             string IdMeasurement, string IdMarkup);
+
+        //////////////////ADMIN
+
+
+        List<string[]> Manneger();
     }
 }

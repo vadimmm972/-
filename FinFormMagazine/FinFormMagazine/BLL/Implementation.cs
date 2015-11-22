@@ -154,6 +154,15 @@ namespace FinFormMagazine.UI
             }
         }
 
+
+        ///////////////////////////////////////////ADMIN
+
+
+
+        public List<string[]> Manneger()
+        {
+           return newClass.Manneger();
+        }
     }
 }
 

@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace FinFormMagazine.BLL
 {
-    class NewImplementation : Newinterface 
+    internal class NewImplementation : Newinterface
     {
         private string GetConnectionString()
         {
             return @"Server=VADIM-PC;Database=MyMagazine; User=VadimLogin;Password=123456;  Integrated Security=false;";
         }
+
         ///////////////////////////////////////////Login
 
 
@@ -70,10 +71,10 @@ namespace FinFormMagazine.BLL
 
         public List<string[]> GetProduct()
         {
-           string query = @"SELECT * From Product
-                           "; 
-           // string query = @"SELECT  From Product p , Category , Producer pr , Measurement m ,Markup
-                       //     ";
+            string query = @"SELECT * From Product
+                           ";
+            // string query = @"SELECT  From Product p , Category , Producer pr , Measurement m ,Markup
+            //     ";
 
             List<string[]> result = new List<string[]>();
             try
@@ -88,7 +89,7 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                              reader["IdProduct"].ToString(),
+                            reader["IdProduct"].ToString(),
                             reader["Name"].ToString(),
                             reader["IdCategory"].ToString(),
                             reader["Price"].ToString(),
@@ -121,7 +122,7 @@ namespace FinFormMagazine.BLL
             ;
             string row = null;
             int num = 0;
-          //  String str = DateTime.Now.ToString("dd");
+            //  String str = DateTime.Now.ToString("dd");
             String str = DateTime.Now.ToString(CultureInfo.InvariantCulture);
             try
             {
@@ -161,7 +162,8 @@ namespace FinFormMagazine.BLL
         {
             string query;
 
-            query = (@"insert into Sale values ( " + tbIdProduct + " , " + Price + " , " + Quantity + " , N' " + Date + "' )");//, IdProduct, Price, Quantity, Date);
+            query = (@"insert into Sale values ( " + tbIdProduct + " , " + Price + " , " + Quantity + " , N' " + Date +
+                     "' )"); //, IdProduct, Price, Quantity, Date);
 
 
             try
@@ -210,12 +212,14 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                            
-                           reader["IdCasir"].ToString(),
+
+                            reader["IdCasir"].ToString(),
                             reader["Name"].ToString(),
                             reader["Surname"].ToString(),
                             reader["Lastname"].ToString(),
-                            reader["NumberPhone"].ToString()
+                            reader["NumberPhone"].ToString(),
+                            reader["Logins"].ToString(),
+                            reader["Passwords"].ToString()
 
                         };
                         result.Add(row);
@@ -249,12 +253,14 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                            
-                           reader["IdWarWorker"].ToString(),
+
+                            reader["IdWarWorker"].ToString(),
                             reader["Name"].ToString(),
                             reader["Surname"].ToString(),
                             reader["Lastname"].ToString(),
-                            reader["NumberPhone"].ToString()
+                            reader["NumberPhone"].ToString(),
+                             reader["Logins"].ToString(),
+                            reader["Passwords"].ToString()
 
                         };
                         result.Add(row);
@@ -271,7 +277,7 @@ namespace FinFormMagazine.BLL
         }
 
 
-        public void Dismiss(string IdDismiss ,int ResDel)
+        public void Dismiss(string IdDismiss, int ResDel)
         {
             string query = null;
             if (ResDel == 1)
@@ -300,19 +306,25 @@ namespace FinFormMagazine.BLL
 
         }
 
-        public void Hire(int Choice ,string Name, string Surname, string Lastname, string PhoneNumber, string Login,
+        public void Hire(int Choice, string Name, string Surname, string Lastname, string PhoneNumber, string Login,
             string Passwords)
         {
             string query = null;
             if (Choice == 1)
             {
-                query = string.Format(@"INSERT INTO Casir VALUES ( " + "N'" + Name + "' , " + "N'" + Surname + "' , " + "N'" + Lastname + "' , " + "N' , " + PhoneNumber + "' , " + "N'" + Login + "' , " + Convert.ToInt16(Passwords) + " )");
+                query =
+                    string.Format(@"INSERT INTO Casir VALUES ( " + "N'" + Name + "' , " + "N'" + Surname + "' , " + "N'" +
+                                  Lastname + "' , " + "N' , " + PhoneNumber + "' , " + "N'" + Login + "' , " +
+                                  Convert.ToInt16(Passwords) + " )");
                 //query = string.Format(@"INSERT INTO Casir VALUES( N'{0}',N'{1}',N'{2}',N'{3},N'{4}' " + Passwords + " )", Name, Surname, Lastname, PhoneNumber, Login);
 
             }
             else if (Choice == 2)
             {
-                query = string.Format(@"INSERT INTO WarWorker VALUES ( " + "N'" + Name + "' , " + "N'" + Surname + "' , " + "N'" + Lastname + "' , " + "N' , " + PhoneNumber + "' , " + "N'" + Login + "' , " + Convert.ToInt16(Passwords) + " )");
+                query =
+                    string.Format(@"INSERT INTO WarWorker VALUES ( " + "N'" + Name + "' , " + "N'" + Surname + "' , " +
+                                  "N'" + Lastname + "' , " + "N' , " + PhoneNumber + "' , " + "N'" + Login + "' , " +
+                                  Convert.ToInt16(Passwords) + " )");
 
                 //query = string.Format(@"INSERT INTO WarWorker VALUES( N'{0}',N'{1}',N'{2}',N'{3},N'{4}', N'{5}' )", Name, Surname, Lastname, PhoneNumber, Login,Passwords);
             }
@@ -339,7 +351,7 @@ namespace FinFormMagazine.BLL
 
         public void Update(string IdProd, string NewPrice)
         {
-           // string query = string.Format(@"UPDATE " + table + " SET " + colums + " = N'" + result + "' where " + IdChoice + " = " + id);
+            // string query = string.Format(@"UPDATE " + table + " SET " + colums + " = N'" + result + "' where " + IdChoice + " = " + id);
             string query = (@"update Product set Price = " + "N'" + NewPrice + "' where IdProduct = " + IdProd);
 
             try
@@ -397,7 +409,7 @@ namespace FinFormMagazine.BLL
                             reader["IdSupplier"].ToString(),
                             reader["Price"].ToString(),
                             reader["Quantity"].ToString(),
-                             reader["DateDelivery"].ToString(),
+                            reader["DateDelivery"].ToString(),
 
                         };
                         result.Add(row);
@@ -450,7 +462,8 @@ namespace FinFormMagazine.BLL
         public void AddDelivery(string IdProd, string IdSupp, string Price, string Quant)
         {
             String str = DateTime.Now.ToString(CultureInfo.InvariantCulture);
-            string query = String.Format(@"insert into Delivery values ({0} , {1} , {2} , {3} , " + "N'" +  str + "')",IdProd,IdSupp,Price,Quant);
+            string query = String.Format(@"insert into Delivery values ({0} , {1} , {2} , {3} , " + "N'" + str + "')",
+                IdProd, IdSupp, Price, Quant);
 
             try
             {
@@ -466,13 +479,13 @@ namespace FinFormMagazine.BLL
             {
                 MessageBox.Show(exception.Message);
             }
-        
+
         }
 
         public List<string[]> GetMessument()
         {
             string query = (@"select * from Measurement")
-            ;
+                ;
 
 
             List<string[]> result = new List<string[]>();
@@ -488,8 +501,8 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                            
-                           reader["IdMeasurement"].ToString(),
+
+                            reader["IdMeasurement"].ToString(),
                             reader["Name"].ToString(),
                             reader["Description"].ToString()
 
@@ -510,7 +523,7 @@ namespace FinFormMagazine.BLL
         public List<string[]> GetMarkap()
         {
             string query = (@"select * from Markup")
-           ;
+                ;
 
 
             List<string[]> result = new List<string[]>();
@@ -526,8 +539,8 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                            
-                           reader["IdMarkup"].ToString(),
+
+                            reader["IdMarkup"].ToString(),
                             reader["Name"].ToString(),
                             reader["Percent"].ToString()
 
@@ -548,7 +561,7 @@ namespace FinFormMagazine.BLL
         public List<string[]> GetCategory()
         {
             string query = (@"select * from Category")
-          ;
+                ;
 
 
             List<string[]> result = new List<string[]>();
@@ -564,7 +577,7 @@ namespace FinFormMagazine.BLL
                     {
                         string[] row = new string[]
                         {
-                            
+
                             reader["IdCategory"].ToString(),
                             reader["Name"].ToString()
                         };
@@ -584,8 +597,10 @@ namespace FinFormMagazine.BLL
         public void SetProducteds(string Name, string IdCategory, string Price, string Quantity, string Idproducer,
             string IdMeasurement, string IdMarkup)
         {
-            string query = String.Format(@"insert into Product values (N'" + Name + "' , " + IdCategory + " , " + Price + " , " + Quantity + " , " + Idproducer + " , " + IdMeasurement + " , " + IdMarkup  + " )")
-         ;
+            string query =
+                String.Format(@"insert into Product values (N'" + Name + "' , " + IdCategory + " , " + Price + " , " +
+                              Quantity + " , " + Idproducer + " , " + IdMeasurement + " , " + IdMarkup + " )")
+                ;
 
             try
             {
@@ -603,5 +618,53 @@ namespace FinFormMagazine.BLL
             }
         }
 
+        /////////////////////////////////////////////ADMIN
+        /// 
+        /// 
+
+
+        public List<string[]> Manneger()
+        {
+            string query = (@"select * from Manager")
+                ;
+
+
+            List<string[]> result = new List<string[]>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string[] row = new string[]
+                        {
+
+                            reader["IdManager"].ToString(),
+                            reader["Name"].ToString(),
+                            reader["Surname"].ToString(),
+                            reader["Lastname"].ToString(),
+                            reader["NumberPhone"].ToString(),
+                            reader["Logins"].ToString(),
+                            reader["Passwords"].ToString()
+
+                        };
+                        result.Add(row);
+                    }
+
+                }
+
+            }
+            catch (SqlException exception)
+            {
+                return new List<string[]>();
+                //  MessageBox.Show("lol");
+            }
+            return result;
+        }
     }
 }
+
