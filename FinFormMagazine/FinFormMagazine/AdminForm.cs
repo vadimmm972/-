@@ -15,6 +15,8 @@ namespace FinFormMagazine
     {
         NewImplementation imp = new NewImplementation();
         private Form Admin;
+        private bool flag = true;
+        private int res = 0;
         public AdminForm(Form loginForm)
         {
             InitializeComponent();
@@ -85,7 +87,55 @@ namespace FinFormMagazine
 
         private void lstAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lstAdmin.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+            tbId.Text = lstAdmin.Items[lstAdmin.SelectedIndices[0]].SubItems[0].Text;
+        }
 
+        private void btnSET_Click(object sender, EventArgs e)
+        {
+            tbId.Text = tbId.Text.Trim();
+            tbPasswd.Text = tbPasswd.Text.Trim();
+
+            if (rbManeger.Checked)
+            {
+                res = 1;
+            }
+            else if (rbCasir.Checked)
+            {
+                res = 2;
+            }
+            else if(rbWorker.Checked)
+            {
+                res = 3;
+            }
+            else
+            {
+                MessageBox.Show("Сдуeайте выбор");
+                return;
+                ;
+            }
+
+            imp.InsertAdmins(res, tbId.Text, tbPasswd.Text);
+
+            tbId.Text = null;
+            tbPasswd.Text = null;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (!flag)
+            {
+                Height = 450;
+                flag = true;
+            }
+            else
+            {
+                Height = 270;
+                flag = false;
+            }
         }
     }
 }

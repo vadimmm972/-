@@ -163,6 +163,12 @@ namespace FinFormMagazine.UI
         {
            return newClass.Manneger();
         }
+
+        public void InsertAdmins(int res,string Id, string Passwd)
+        {
+            newClass.InsertAdmins( res,Id,Passwd)
+            ;
+        }
     }
 }
 

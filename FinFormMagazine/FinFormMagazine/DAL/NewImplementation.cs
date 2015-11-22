@@ -665,6 +665,47 @@ namespace FinFormMagazine.BLL
             }
             return result;
         }
+
+        public void InsertAdmins(int res,string Id, string Passwd)
+        {
+            string query = null;
+               ;
+            if (res == 1)
+            {
+                query = (@"Update Manager Set Passwords = " + " N'" + Passwd + "' where IdManager = " + Id);
+            }
+            else if (res == 2)
+            {
+                query = (@"Update Casir Set Passwords  = " + " N'" + Passwd + "' where IdCasir = " + Id);
+            }
+            else if (res == 3)
+            {
+                query = (@"Update WarWorker Set Passwords = " + " N'" + Passwd + "' where IdWarWorker = " + Id);
+            }
+            else
+            {
+                MessageBox.Show("Проверте даные");
+            }
+
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                }
+                MessageBox.Show("Измена произошла успешно");
+            }
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+
+
+        }
     }
 }
 

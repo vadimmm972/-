@@ -36,6 +36,7 @@ namespace FinFormMagazine.BLL
         //////////////////////////////////////////ADMIN
 
         List<string[]> Manneger();
+         void InsertAdmins(int res,string Id,  string Passwd);
 
     }
 }
